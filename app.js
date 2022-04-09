@@ -11,9 +11,25 @@ let editElement;
 let editFlag = false;
 let editID = '';
 // ****** EVENT LISTENERS **********
-
+// submit form
+form.addEventListener('submit',addItem);
 // ****** FUNCTIONS **********
-
+function addItem(e){
+    e.preventDefault();
+    // console.log(grocery.value);
+    const value = grocery.value;
+    const id = new Date().getTime().toString();
+    // console.log(id);
+    if(value !== '' && editFlag === false){
+        console.log('add item to the list');
+    }
+    else if(value !== '' && editFlag === true){
+        console.log('editing');
+    }
+    else{
+        console.log('empty value');
+    }
+}
 // ****** LOCAL STORAGE **********
 
 // ****** SETUP ITEMS **********
