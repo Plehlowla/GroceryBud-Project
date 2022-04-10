@@ -108,8 +108,23 @@ function editItem(){
     console.log('edit item');
 }
 // delete function
-function deleteItem(){
-    console.log('item deleted');
+function deleteItem(e){
+    // console.log('item deleted');
+    const element = e.currentTarget.parentElement.parentElement;
+    const id = element.dataset.id;
+    // console.log(element);
+    list.removeChild(element);
+
+    if(list.children.length === 0){
+        container.classList.remove('show-container');
+    }
+
+    displayAlert('item removed', 'danger');
+    setBackToDefault();
+
+    // remove from local storage
+    removeFromLocalStorage(id);
+
 }
 // set back to default
 function setBackToDefault(){
@@ -122,5 +137,8 @@ function setBackToDefault(){
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id,value){
     console.log('added to local storage');
+}
+function removeFromLocalStorage(id){
+    
 }
 // ****** SETUP ITEMS **********
