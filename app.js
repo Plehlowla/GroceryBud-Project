@@ -15,6 +15,8 @@ let editID = '';
 form.addEventListener('submit',addItem);
 // clear item
 clearBtn.addEventListener('click',clearItems);
+
+
 // ****** FUNCTIONS **********
 function addItem(e){
     e.preventDefault();
@@ -42,7 +44,14 @@ function addItem(e){
           <button type="button" class="delete-btn">
             <i class="fas fa-trash"></i>
           </button>
-        </div>`
+        </div>`;
+
+        // btn
+        const deleteBtn = element.querySelector('.delete-btn');
+        const editBtn = element.querySelector('.edit-btn');
+        deleteBtn.addEventListener('click',deleteItem);
+        editBtn.addEventListener('click',editItem);
+
         // append child
         list.appendChild(element);
 
@@ -94,6 +103,14 @@ function clearItems(){
     // localStorage.removeItem('list');
 }
 
+// edit function
+function editItem(){
+    console.log('edit item');
+}
+// delete function
+function deleteItem(){
+    console.log('item deleted');
+}
 // set back to default
 function setBackToDefault(){
     // console.log('set back to default');
