@@ -13,6 +13,8 @@ let editID = '';
 // ****** EVENT LISTENERS **********
 // submit form
 form.addEventListener('submit',addItem);
+// clear item
+clearBtn.addEventListener('click',clearItems);
 // ****** FUNCTIONS **********
 function addItem(e){
     e.preventDefault();
@@ -74,7 +76,22 @@ function displayAlert(text,action){
     setTimeout(function(){
         alert.textContent = '';
         alert.classList.remove(`alert-${action}`)
-    }, 2000)
+    }, 1500)
+}
+
+// clear Items
+function clearItems(){
+    const items = document.querySelectorAll('.grocery-item');
+    // console.log(items);
+    if(items.length > 0){
+        items.forEach(function(item){
+            list.removeChild(item);
+        })
+    };
+    container.classList.remove('show-container');
+    displayAlert('empty list', 'danger');
+    setBackToDefault();
+    // localStorage.removeItem('list');
 }
 
 // set back to default
