@@ -91,7 +91,7 @@ function editItem(e){
     const element = e.currentTarget.parentElement.parentElement;
     // set edit item
     editElement = e.currentTarget.parentElement.previousElementSibling;
-    console.log(editElement);
+    // console.log(editElement);
     // set form value
     grocery.value = editElement.innerHTML;
     editFlag = true;
@@ -138,7 +138,7 @@ function addToLocalStorage(id,value){
     };
     // console.log(grocery);
     let items = localStorage.getItem('list')?JSON.parse(localStorage.getItem('list')):[];
-    console.log(items);
+    // console.log(items);
 
     items.push(grocery);
     localStorage.setItem('list',JSON.stringify(items));
@@ -152,7 +152,7 @@ function removeFromLocalStorage(id){
         }
     })
     localStorage.setItem('list', JSON.stringify(items));
-    console.log(items);
+    // console.log(items);
 }
 function editLocalStorage(id,value){
     let items = getLocalStorage();
